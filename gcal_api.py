@@ -5,9 +5,22 @@ import os.path
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
+import json
 
-# If modifying these scopes, delete the file token.pickle.
-SCOPES = ['https://www.googleapis.com/auth/calendar']
+calendar_name = "2020 Books" # New calendar name
+
+# If modifying these scopes, delete the file token.pickle
+SCOPES = ['https://www.googleapis.com/auth/calendar', 'https://www.googleapis.com/auth/calendar.events']
+
+def create_calendar(service, calendar_name):
+    calendar = {
+        'summary': calendar_name,
+        'timeZone': 'America/New_York'
+    }
+
+    created_calendar = service.calendars().insert(body=calendar).execute()
+    print(created_calendar['id'])
+    return created_calendar['id']
 
 def main():
     """Shows basic usage of the Google Calendar API.
@@ -35,18 +48,14 @@ def main():
     service = build('calendar', 'v3', credentials=creds)
 
     # Call the Calendar API
-    now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
-    print('Getting the upcoming 10 events')
-    events_result = service.events().list(calendarId='primary', timeMin=now,
-                                        maxResults=10, singleEvents=True,
-                                        orderBy='startTime').execute()
-    events = events_result.get('items', [])
+    events_file = open('./data/body.json')
+    events = json.load(events_file)
+    calendar_id = create_calendar(service, calendar_name) # Create a separate calendar - Calendar MUST be deleted manually if exists
 
-    if not events:
-        print('No upcoming events found.')
-    for event in events:
-        start = event['start'].get('dateTime', event['start'].get('date'))
-        print(start, event['summary'])
+    for book in events:
+        event = service.events().insert(calendarId=calendar_id, body=book).execute()
+        print('Event created: %s' % (event.get('htmlLink')))
+
 
 if __name__ == '__main__':
     main()
