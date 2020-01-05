@@ -1,0 +1,8 @@
+#!/bin/bash
+echo "Generating schedule list..."
+python3 ./schedule_list.py
+echo "Generating Calendar API body..."
+python3 ./create_schedule.py
+echo "Calling API and creating events..."
+python3 ./gcal_api.py
+echo "COMPLETE!"
