@@ -47,7 +47,7 @@ _*This project uses Python 3_
 
 `source env/bin/activate`
 
-3. Install the requirements 
+4. Install the requirements 
 
 `pip3 install -r requirements.txt`
 
