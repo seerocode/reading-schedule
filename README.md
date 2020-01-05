@@ -21,13 +21,15 @@ A couple of hours of tinkering later and we end up here: a Google calendar popul
 
 I have the ability to move around the events to days that are better for me with Google calendar integration. If Goodreads had something like this, it would be amazing!
 
+<img src="./readingscheduler.gif">
+
 ### Contribute & Disclaimer
 
 This is a _highly_ personal script (lots of toddler books in here because who can figure them out, amirite?) and was intended for my purposes only. Please do fork and use/contribute as you'd like.
 
 **Here's how you can contribute and make this better (AKA what I'd like to do better):**
 
-- [ ] Change date objects in `schedule_list.py` so the Google Calendar API can accept it and create all-day events instead of midnight events.
+- [ ] Change date objects in `schedule_list.py` so the Google Calendar API can accept it and create all-day events instead of specifically timed events.
 - [ ] Improve performance by implementing a pattern for "learn" and "fun". Essentially, if we know a book is 200+ pages, we already know what the page ranges up until page 200 will be and we will only need to do some short logic for the remaining range(s).
 - [ ] Create a front-end so I can change the order of the books I want to read and import from Goodreads API instead of manually creating a CSV file
 - [ ] Track reading progress in said UI and send to Goodreads (possibly?)
@@ -93,4 +95,4 @@ You'll see a list of event links being generated in the terminal. This could tak
 
 - If you are on Windows, you may need to run `sudo apt-get install dos2unix` to convert the bash script to Unix format and run `dos2unix run-me`.
 
-- If you get an "app not verified message" in the browser after navigating to that link, you can safely continue (or not, up to you). This is giving full edit, write, and delete rights to this script. 
+- If you get an "app not verified message" in the browser after navigating to the login link, you can safely continue (or not, up to you). This is giving full edit, write, and delete rights to this script. 
