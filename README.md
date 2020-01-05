@@ -19,6 +19,8 @@ To do this I needed to:
 ### Result 
 A couple of hours of tinkering later and we end up here: a Google calendar populated (using the Google Calendar API) with all the books I want to read for the year, in my desired order, 5 days a week, for the entire year! 
 
+I have the ability to move around the events to days that are better for me with Google calendar integration. If Goodreads had something like this, it would be amazing!
+
 ### Contribute & Disclaimer
 
 This is a _highly_ personal script (lots of toddler books in here because who can figure them out, amirite?) and was intended for my purposes only. Please do fork and use/contribute as you'd like.
