@@ -43,11 +43,21 @@ _*This project uses Python 3_
 
 2. `Cd` to the folder where you cloned the project
 
+3. Start virtual environment 
+
+`source env/bin/activate`
+
 3. Install the requirements 
 
 `pip3 install -r requirements.txt`
 
-In order to make the script work for *you*, you'll need to first edit and overwrite the `books.csv` file in the `./data` folder. 
+If you just want to play around with the code and data, you can stop here.
+
+If you want to make the script work for *you*, follow these steps...
+
+## Extreme Set Up
+
+You'll need to first edit and overwrite the `books.csv` file in the `./data` folder. 
 
 *CSV Data Columns*:
 - The _order_ column is the order in which you will read each book with "1" being the first book, and "20" being the last book, in my case. 
